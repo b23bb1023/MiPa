@@ -1,4 +1,0 @@
-experiment,modality_train,rho_mode,rho_fixed,beta_a,beta_b,use_ma,ma_gamma,freeze_backbone,backbone,ir_AP50,rgb_AP50,avg_AP50,ir_precision,ir_recall,rgb_precision,rgb_recall,time_min,peak_gpu_gb,best_epoch
-A1_rho_uniform,mipa,variable,0.5,2.0,2.0,True,0.05,False,resnet50,90.78,88.29,89.53,79.3,97.2,55.5,92.2,63.5,3.99,6
-A2_rho_beta_centered,mipa,beta_centered,0.5,2.0,2.0,True,0.05,False,resnet50,90.79,89.53,90.16,89.0,97.1,52.2,93.1,75.0,3.99,6
-A3_rho_beta_bimodal,mipa,beta_bimodal,0.5,0.5,0.5,True,0.05,False,resnet50,90.80,88.94,89.87,86.7,97.4,43.7,93.5,75.0,3.99,4
