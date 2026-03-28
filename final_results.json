@@ -1,0 +1,110 @@
+[
+  {
+    "experiment_name": "B2_swin_rho_beta_centered",
+    "config": {
+      "modality_train": "mipa",
+      "rho_mode": "beta_centered",
+      "rho_fixed_value": 0.5,
+      "beta_a": 2.0,
+      "beta_b": 2.0,
+      "use_ma_module": true,
+      "ma_gamma": 0.05,
+      "freeze_backbone": false,
+      "backbone": "swin_b2",
+      "lr": 0.0002,
+      "batch_size": 8,
+      "num_epochs": 6,
+      "seed": 42
+    },
+    "final_metrics": {
+      "ir_AP50": 86.86,
+      "rgb_AP50": 82.95,
+      "avg_AP50": 84.91,
+      "ir_precision": 38.9,
+      "ir_recall": 94.3,
+      "rgb_precision": 28.7,
+      "rgb_recall": 87.3,
+      "ir_time_per_image_ms": 75.0,
+      "rgb_time_per_image_ms": 75.0
+    },
+    "best_epoch": 6,
+    "total_time_s": 768.8,
+    "peak_gpu_gb": 13.55,
+    "train_loss_curve": [
+      {
+        "epoch": 6,
+        "total_loss": 0.3906
+      }
+    ],
+    "val_ir_curve": [
+      {
+        "epoch": 6,
+        "AP50": 86.86,
+        "precision": 38.9,
+        "recall": 94.3
+      }
+    ],
+    "val_rgb_curve": [
+      {
+        "epoch": 6,
+        "AP50": 82.95,
+        "precision": 28.7,
+        "recall": 87.3
+      }
+    ]
+  },
+  {
+    "experiment_name": "B2_swin_variant_2",
+    "config": {
+      "modality_train": "mipa",
+      "rho_mode": "beta_centered",
+      "rho_fixed_value": 0.5,
+      "beta_a": 2.0,
+      "beta_b": 2.0,
+      "use_ma_module": true,
+      "ma_gamma": 0.05,
+      "freeze_backbone": false,
+      "backbone": "swin_b2",
+      "lr": 0.0002,
+      "batch_size": 8,
+      "num_epochs": 6,
+      "seed": 42
+    },
+    "final_metrics": {
+      "ir_AP50": 90.25,
+      "rgb_AP50": 86.54,
+      "avg_AP50": 86.4,
+      "ir_precision": 35.3,
+      "ir_recall": 95.7,
+      "rgb_precision": 23.2,
+      "rgb_recall": 88.5,
+      "ir_time_per_image_ms": 75.0,
+      "rgb_time_per_image_ms": 75.0
+    },
+    "best_epoch": 6,
+    "total_time_s": 770.0,
+    "peak_gpu_gb": 13.55,
+    "train_loss_curve": [
+      {
+        "epoch": 6,
+        "total_loss": 0.38
+      }
+    ],
+    "val_ir_curve": [
+      {
+        "epoch": 6,
+        "AP50": 90.25,
+        "precision": 35.3,
+        "recall": 95.7
+      }
+    ],
+    "val_rgb_curve": [
+      {
+        "epoch": 6,
+        "AP50": 86.54,
+        "precision": 23.2,
+        "recall": 88.5
+      }
+    ]
+  }
+]
