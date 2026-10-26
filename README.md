@@ -2,7 +2,7 @@
 
 An exploratory study of mixed visible/infrared patches for pedestrian detection on LLVIP. The notebooks adapt the idea from **Mixed Patch Visible-Infrared Modality Agnostic Object Detection** (Medeiros et al., WACV 2025) to Faster R-CNN, comparing mixing-ratio distributions and ResNet50/Swin-Tiny detector configurations.
 
-**Status: research prototype requiring training and evaluation corrections.** The committed MA (modality-adversarial) loss has a zero schedule throughout training, and existing result artifacts have unresolved provenance and arithmetic issues. Treat the saved outputs as historical, provisional artifacts. They do not establish a distribution winner or a successful reproduction of the original paper. The implementation tasks and acceptance checks are in [improvement_repo.md](improvement_repo.md).
+**Status: research prototype requiring training and evaluation corrections.** The committed MA (modality-adversarial) loss has a zero schedule throughout training, and existing result artifacts have unresolved provenance and arithmetic issues. Treat the saved outputs as historical, provisional artifacts. They do not establish a distribution winner or a successful reproduction of the original paper.
 
 ## What is included
 
@@ -13,7 +13,6 @@ An exploratory study of mixed visible/infrared patches for pedestrian detection 
 | [final_results.json](final_results.json) | Two historical result records and serialized configurations |
 | [final_results.csv](final_results.csv) | Tabular version of those historical results |
 | `DL REPORT.docx`, `DL PROJECT.pptx` | Project report and presentation |
-| [improvement_repo.md](improvement_repo.md) | Prioritized technical remediation and verification plan |
 | [LICENSE](LICENSE) | MIT license for this repository |
 
 The notebooks are at the repository root. There is no committed `notebooks/` or `results/` directory, installable package, dependency lock, automated test suite, or CI workflow. Dataset images, annotations, and model checkpoints are not included.
@@ -65,13 +64,13 @@ The intended environment is a Kaggle notebook with a T4-class GPU. The source im
 2. Attach an LLVIP dataset you are permitted to use. The dataset root must contain `visible/train`, `visible/test`, `infrared/train`, `infrared/test`, and the XML annotation directory (`Annotations` in the documented layout). Paired visible/IR files must share filenames.
 3. Before executing the third code cell, inspect `main()`. It currently assigns `dataset_root = "/kaggle/input/datasets/riyajain1040/llvip-dataset/LLVIP"`. Update that assignment in your working notebook to the actual mounted directory. Changing only the dataclass default will not override `main()`. A missing mount can raise `FileNotFoundError` before a helpful validation message.
 4. Check the output directory in `main()`: `/kaggle/working/mipa_results`, with a `./mipa_results` fallback outside Kaggle. Use separate, empty output directories for independent runs to avoid the existing automatic resume behavior.
-5. Review `Config`, `define_experiments()`, and the [technical plan](improvement_repo.md) before starting training. Resolve the MA, scheduler, resume, and split-selection issues before producing new benchmark claims.
+5. Review `Config`, `define_experiments()`, and the known limitations above before starting training. Resolve the MA, scheduler, resume, and split-selection issues before producing new benchmark claims.
 
 These steps identify the current entry points and required manual setup; a clean-runtime training reproduction has not been verified. GPU memory and elapsed time depend on the environment and should be measured again after the fixes.
 
 ## Contributing
 
-Start with the ordered tasks in [improvement_repo.md](improvement_repo.md). Keep fixes small, include the specified regression checks, and retain the original raw results with their provenance. Publish new metrics only with the source commit, complete config, environment, split IDs, seed, evaluator protocol, and run artifacts.
+Prioritize the MA schedule, scheduler/resume state, and evaluation split before publishing new comparisons. Keep fixes small, include focused regression checks, and retain the original raw results with their provenance. Publish new metrics only with the source commit, complete config, environment, split IDs, seed, evaluator protocol, and run artifacts.
 
 ## References and attribution
 
